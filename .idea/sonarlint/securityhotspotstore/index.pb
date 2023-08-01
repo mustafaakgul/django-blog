@@ -26,15 +26,19 @@ C
 django_blog/urls.py,0/9/0963d896abba69c0fa28f3b456329a5bffcf5669
 =
 .env.template,c/b/cba580618a52ae1531e8a3a2da7595593afd602d
-A
-articles/admin.py,f/0/f0e2e93b611cf9ddd753813cde262bd007b97cfe
 G
 django_blog/settings.py,f/2/f2fe66ea0f41b4ce6664c0b58384b407fe3b7b3e
 A
 articles/forms.py,a/a/aa291e35fd33e72e9f8063651a3fa4bf4ba53d9d
 A
 comments/forms.py,8/a/8a118516577043264d6575fedb60fbdb291a6dbe
-B
-comments/models.py,5/7/575ea23ff15cda70c6923d644607721a006a9719
-B
-articles/models.py,e/5/e5583a8d86d74504d45be5b809a556dc10539c34
+D
+accounts/__init__.py,6/6/66f55cad95e855b835d1f61bb875e90339c35887
+@
+accounts/apps.py,1/0/105856a1a16213228e6bf93c0ff567a0b51380c4
+A
+accounts/admin.py,a/3/a3360866a37a1817d2b7bff9b4bc78c975e3b58e
+A
+articles/views.py,e/d/ed6411e4a925ed952ae6fdff3cfbf8086caaaa71
+A
+accounts/forms.py,4/2/423d51d4f9a16166c3e1046d2a92cb79899b60d0
