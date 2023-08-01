@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+
+    <div class="row">
+        <div class="col-md-10 offset-md-3">
+            <div class="col-lg-8">
+<h3>Articles</h3>
+        </div>
+            </div>
+    </div>
+
+            <div class ="row">
+                <div class="col-md-10 offset-md-3">
+                    <div class="col-lg-8">
+                        <form>
+                             {% csrf_token %}
+                            <input type="text" name = "keyword" class="input-sm" maxlength="64" placeholder="Ara..." value="{{ request.GET.keyword }}">
+                          <button type="submit" class="btn btn-danger">Ara</button>
+                        </form>
+                  </div>
+                </div>
+            </div>
+
+    {% if articles %}
+
+        {% for article in articles %}
+             <div class="row">
+                <div class="col-md-10 offset-md-3">
+
+      <div class="col-lg-8">
+
+        <a href="{% url 'article:detail' article.id %}"><h2 class="mt-4">{{article.title}}</h2></a>
+
+        <p class="lead">
+          by
+          {{article.author.username}}
+        </p>
+
+        <hr>
+
+        <p>{{article.created_date}}</p>
+        <hr>
+
+          {% if article.article_image%}
+              <img class="img-fluid rounded" src="{{ article.article_image.url }}" alt="">
+          {% endif %}
+
+
+        <hr>
+
+        <p class="lead">
+            {{article.content|safe}}
+        </p>
+
+        <hr>
+
+      </div>
+
+</div>
+    </div>
+        {% endfor %}
+
+        <div class="row">
+                <div class="col-md-10 offset-md-3">
+        <div class="pagination">
+            <span class="step-links">
+                {% if articles.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ articles.previous_page_number }}{% if request.GET.keyword %}&keyword={{ request.GET.keyword }}{% endif %}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+                </span>
+
+                {% if articles.has_next %}
+                    <a href="?page={{ articles.next_page_number }}{% if request.GET.keyword %}&keyword={{ request.GET.keyword }}{% endif %}">next</a>
+                    <a href="?page={{ articles.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+                </div>
+        </div>
+
+    {% else %}
+          <div class ="row">
+                <div class="col-md-10 offset-md-3">
+                    <div class="col-lg-8">
+        <div class="alert alert-danger">No any articles</div>
+                    </div>
+                </div></div>
+    {% endif %}
+
+{% endblock body %}

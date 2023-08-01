@@ -1,0 +1,36 @@
+{% extends "layout.html"%}
+
+{% block bodyblock %}
+
+    <h3>MainPage</h3>
+    <div class="jumbotron text-center">
+        <h2>Blog</h2>
+    </div>
+
+    <p>
+        {% if request.user.is_authenticated %}
+            You are in.  {{ request.user.username }}
+        {% else %}
+            You are out.
+        {% endif %}
+    </p>
+
+    <p>
+        {{ number1 }}
+    </p>
+    <p>
+        {{ number2 }}
+    </p>
+    {% if number1 == 10 %}
+            <p>10 a esit</p>
+    {% else %}
+    
+    {% endif %}
+
+    <ul>
+    {% for number in numbers %}
+            <li>{{ number }}</li>
+    {% endfor %}
+    </ul>
+
+{% endblock bodyblock %}
