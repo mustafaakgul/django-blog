@@ -1,6 +1,7 @@
 # Rules
  * App Name -> plural
  * App Name with Action for Instance "register" -> singular
+ * Don't use import * (all) -> import specific class
 
 # TODO
  * Pipfile
