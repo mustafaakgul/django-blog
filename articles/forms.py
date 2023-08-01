@@ -1,25 +1,16 @@
-from django import forms
-from .models import  Article
+from django.forms import ModelForm
+from .models import Article
+#from captcha.fields import ReCaptchaField
 
-#forms.Form yerine Model formlarndan olusturmak
-#forms.Form dan turetileblir class parantezinin icine ancak kndimizde olusturabliriz
-class ArticleForm(forms.ModelForm):
+
+# Alternative Inheritance -> forms.Form
+class ArticleForm(ModelForm):
+    # captcha = ReCaptchaField()
+
     class Meta:
         model = Article
-        #fields = ["title", "content"]
-        fields = ["title", "content", "article_image"]
-
-
-from captcha.fields import ReCaptchaField
-
-
-class PostForm(forms.ModelForm):
-    captcha = ReCaptchaField()
-
-    class Meta:
-        model = Post
         fields = [
-            'title',
-            'content',
-            'image',
+            "title",
+            "content",
+            "image",
         ]
