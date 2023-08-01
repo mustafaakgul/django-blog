@@ -1,55 +1,21 @@
 from django.db import models
-
 from ckeditor.fields import RichTextField
 
 
 class Article(models.Model):
-    author = models.ForeignKey("auth.User",on_delete = models.CASCADE,verbose_name = "Yazar ")
-    title = models.CharField(max_length = 50,verbose_name = "Başlık")
-    content = RichTextField()
-    created_date = models.DateTimeField(auto_now_add=True,verbose_name="Oluşturulma Tarihi")
-    article_image = models.FileField(blank = True,null = True,verbose_name="Makaleye Fotoğraf Ekleyin")
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        ordering = ['-created_date']
-class Comment(models.Model):
-    article = models.ForeignKey(Article,on_delete = models.CASCADE,verbose_name = "Makale",related_name="comments")
-    comment_author = models.CharField(max_length = 50,verbose_name = "İsim")
-    comment_content = models.CharField(max_length = 200,verbose_name = "Yorum")
-    comment_date = models.DateTimeField(auto_now_add=True)
-    def __str__(self):
-        return self.comment_content
-    class Meta:
-        ordering = ['-comment_date']
-
-# Create your models here. models class dan turet
-class Article(models.Model):
-    author = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Author")  #user foreigh key belirle slinrsede buda slnsn
-    title = models.CharField(max_length=50)
-    #content = models.TextField()
-    content = RichTextField()
-    created_date = models.DateTimeField(auto_now_add=True) #date vermicez o kullnsn demek ilk olustugnda
-    #update_date = models.DateTimeField(auto_now=True) update edlnce tarih
-    article_image = models.FileField(blank = True, null = True, verbose_name= "Image")
+    author = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Author")
+    title = models.CharField(max_length=50, verbose_name="Title")
     #slug = models.SlugField(unique=True)  url lerde essiz yapilar olstrma burada detay daki gib id ler yerine ornegn title blgileri gsterleblr
-    #https://www.youtube.com/watch?v=wH2Kl0sD-ao&list=PLPrHLaayVkhny4WRNp05C1qRl1Aq3Wswh&index=31
+    content = RichTextField(max_length=2000) # models.TextField()
+    image = models.FileField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     def __str__(self):
         return self.title
-    class Meta:  #siralamak icin en once eklenen ilk gsterlir tam tersiniide meta ile
-        ordering = ["-created_date"]
 
-class Comment(models.Model):
-    article = models.ForeignKey(Article, on_delete = models.CASCADE, verbose_name = "Article", related_name = "comments")
-    #comment ile comment tabloasuna drek erisim related ile
-    comment_author = models.CharField(max_length=50)
-    comment_content = models.CharField(max_length=200)
-    comment_date = models.DateTimeField(auto_now_add= True)
-    def __str__(self):
-        return self.comment_content
     class Meta:
-        ordering = ["-comment_date"]
+        ordering = ['-created_at']
 
 
 """
@@ -68,7 +34,6 @@ class Article(models.Model):
                 return self.title
 """
 
-from django.db import models
 from autoslug import AutoSlugField
 #from blog.models import KategoriModel
 from ckeditor.fields import RichTextField
@@ -117,9 +82,6 @@ class YazilarModel(models.Model):
     def __str__(self):
         return self.baslik
 
-
-
-from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
@@ -164,14 +126,3 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-publishing_date', 'id']
-
-
-class Comment(models.Model):
-    post = models.ForeignKey('post.Post', on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=200, verbose_name='Ad Soyad')
-    content = models.TextField(verbose_name='Yorum')
-
-    created_date = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.name

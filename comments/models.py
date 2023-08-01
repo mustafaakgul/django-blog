@@ -1,7 +1,40 @@
 from django.db import models
 from django.contrib.auth.models import User
-from blog.models import YazilarModel
+from articles.models import YazilarModel
 from blog.abstract_models import DateAbstractModel
+
+
+class Comment(models.Model):
+    article = models.ForeignKey(Article,on_delete = models.CASCADE,verbose_name = "Makale",related_name="comments")
+    comment_author = models.CharField(max_length = 50,verbose_name = "İsim")
+    comment_content = models.CharField(max_length = 200,verbose_name = "Yorum")
+    comment_date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.comment_content
+    class Meta:
+        ordering = ['-comment_date']
+
+class Comment(models.Model):
+    article = models.ForeignKey(Article, on_delete = models.CASCADE, verbose_name = "Article", related_name = "comments")
+    #comment ile comment tabloasuna drek erisim related ile
+    comment_author = models.CharField(max_length=50)
+    comment_content = models.CharField(max_length=200)
+    comment_date = models.DateTimeField(auto_now_add= True)
+    def __str__(self):
+        return self.comment_content
+    class Meta:
+        ordering = ["-comment_date"]
+
+
+class Comment(models.Model):
+    post = models.ForeignKey('post.Post', on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=200, verbose_name='Ad Soyad')
+    content = models.TextField(verbose_name='Yorum')
+
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
 
 class YorumModel(DateAbstractModel):
     yazan = models.ForeignKey('account.CustomUserModel', on_delete=models.CASCADE, related_name='yorum')
