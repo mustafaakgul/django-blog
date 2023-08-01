@@ -24,9 +24,6 @@ D
 articles/urls.py,b/4/b40ae9ac061e8339236ab9c7f44577c1df3545ae
 C
 django_blog/urls.py,0/9/0963d896abba69c0fa28f3b456329a5bffcf5669
-:
-
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 =
 .env.template,c/b/cba580618a52ae1531e8a3a2da7595593afd602d
 A
