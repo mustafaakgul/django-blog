@@ -6,12 +6,9 @@ app_name = "articles"
 
 
 urlpatterns = [
-    path('', views.articles, name="articles"),
-    path('create/', views.index, name = "index"),
-    path('dashboard/', views.dashboard, name = "dashboard"),
-    path('addarticle/', views.addarticle, name="addarticle"),
-    path('article/<int:id>', views.detail, name="detail"),
-    path('update/<int:id>', views.updateArticle, name="update"),
-    path('delete/<int:id>', views.deleteArticle, name="delete"),
-    path('comment/<int:id>', views.addComment, name="comment"),
+    path('', views.list_articles, name="list_articles"),
+    path('create/', views.create_article, name = "create_article"),
+    path('detail/<int:id>', views.get_article, name="get_article"),
+    path('update/<int:id>', views.update_article, name="update_article"),
+    path('delete/<int:id>', views.delete_article, name="delete_article"),
 ]
