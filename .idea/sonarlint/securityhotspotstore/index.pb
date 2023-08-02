@@ -16,8 +16,6 @@ A
 contacts/tests.py,3/1/3169929543ecc97642e1d4bd18161d8cd0034d61
 A
 contacts/views.py,e/a/ea96aa7b582a854d276e39b492f4b987a0715914
-D
-categories/models.py,b/e/befdbfe9d538d08ff4edd4ed8b3bd7ad46b58e42
 ;
 media/.keep,8/2/82a714a3cbe2cc619e7c1be4fa7c3f385f156bbf
 @
@@ -40,3 +38,23 @@ A
 articles/views.py,e/d/ed6411e4a925ed952ae6fdff3cfbf8086caaaa71
 A
 accounts/forms.py,4/2/423d51d4f9a16166c3e1046d2a92cb79899b60d0
+B
+accounts/models.py,6/1/61552fe05711cbaa3244c18deedf1d76e08d2649
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+A
+accounts/tests.py,d/d/dd34e9e1474cddb9e5d2f2e680bd1cb27ebbab6e
+<
+core/apps.py,0/0/00e220fb32040779934e4d56c9324022aacab658
+=
+core/admin.py,7/5/7504b8b5bc74cdd367c7f4cb37fefcd852215a7d
+=
+core/tests.py,f/0/f0ee9b29a9b6fb763d5114e01dacf3beaa34ab94
+=
+core/views.py,4/7/4706701c005a11d84d8ae7731365c7c336e3f466
+>
+core/models.py,f/2/f2aa1877262ad8572d1a58fd2492878f7250f7cc
+@
+core/__init__.py,c/e/ce4f796c5be8947b7ba7705fab2b891600f264e5
+K
+core/migrations/__init__.py,2/f/2f9440d333ffafa2ca433d63945c2458813ded5e

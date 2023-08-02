@@ -49,6 +49,6 @@ class Article(models.Model): # (DateAbstractModel):
 
     class Meta:
         ordering = ['-created_at']
-        # verbose_name = 'Yazi'
-        # verbose_name_plural = 'Yazilar'
-        # db_table = 'Yazi'
+        # verbose_name = 'Article'
+        # verbose_name_plural = 'Articles'
+        # db_table = 'Article'

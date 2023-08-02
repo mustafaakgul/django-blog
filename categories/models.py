@@ -1,15 +1,15 @@
 from django.db import models
 from autoslug import AutoSlugField
 
-class KategoriModel(models.Model):
-    isim = models.CharField(max_length=30, blank=False, null=False)
-    slug = AutoSlugField(populate_from='isim', unique=True)   # auto slug olsuturmak icin unique ile otomatk kendi ayarlıcak sonuan 1 2 felna koyacak
+
+class Category(models.Model):
+    name = models.CharField(max_length=30, blank=False, null=False)
+    slug = AutoSlugField(populate_from='name', unique=True)   # Creates slug automatically
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table = 'kategori'    #db icindeki tablo adi
-        verbose_name_plural = 'Kategoriler'
-        verbose_name = 'Kategori'
+        ordering = ['-created_at']
 
     def __str__(self):
-        return self.isim
-
+        return self.name
