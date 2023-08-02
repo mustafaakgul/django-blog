@@ -8,8 +8,6 @@ A
 contacts/tests.py,3/1/3169929543ecc97642e1d4bd18161d8cd0034d61
 ;
 media/.keep,8/2/82a714a3cbe2cc619e7c1be4fa7c3f385f156bbf
-C
-django_blog/urls.py,0/9/0963d896abba69c0fa28f3b456329a5bffcf5669
 =
 .env.template,c/b/cba580618a52ae1531e8a3a2da7595593afd602d
 G
