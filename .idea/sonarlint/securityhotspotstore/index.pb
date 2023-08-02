@@ -35,8 +35,6 @@ D
 A
 accounts/admin.py,a/3/a3360866a37a1817d2b7bff9b4bc78c975e3b58e
 A
-articles/views.py,e/d/ed6411e4a925ed952ae6fdff3cfbf8086caaaa71
-A
 accounts/forms.py,4/2/423d51d4f9a16166c3e1046d2a92cb79899b60d0
 B
 accounts/models.py,6/1/61552fe05711cbaa3244c18deedf1d76e08d2649

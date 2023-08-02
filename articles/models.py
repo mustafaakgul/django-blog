@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 
 
 class Article(models.Model): # (DateAbstractModel):
-    author = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="Author")
+    author = models.ForeignKey("auth.User", on_delete=models.CASCADE, verbose_name="articles")
     title = models.CharField(max_length=50, verbose_name="Title")
     # slug = AutoSlugField(populate_from='baslik', unique=True) SlugField(unique=True, editable=False, max_length=130)
     # slug = models.SlugField(unique=True)  url lerde essiz yapilar olstrma burada detay daki gib id ler yerine ornegn title blgileri gsterleblr
