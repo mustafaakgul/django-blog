@@ -1,7 +1,7 @@
-from django.contrib import admin
 from django.urls import path
-from .views import emailview
+from .views import contact_us
+
 
 urlpatterns = [
-    path('', emailview, name="contact"),
-    ]
+    path('', contact_us, name="contact_us"),
+]

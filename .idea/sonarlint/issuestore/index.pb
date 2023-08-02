@@ -5,17 +5,7 @@ A
 
 docs/.keep,7/f/7f2312e437a2ee47c282278c1f5143774bef432c
 A
-contacts/forms.py,f/d/fd4bfda018c7687432cb0d45c099ed2be65c7f6f
-@
-contacts/urls.py,3/1/31adf62619d940451b8eb41aec7b72d0b6ce7935
-A
-contacts/admin.py,b/5/b53b19615e883808993649c5e812485e61e40ab0
-B
-contacts/models.py,f/0/f0247e3904c566498f5424641e7c25d9856582be
-A
 contacts/tests.py,3/1/3169929543ecc97642e1d4bd18161d8cd0034d61
-A
-contacts/views.py,e/a/ea96aa7b582a854d276e39b492f4b987a0715914
 ;
 media/.keep,8/2/82a714a3cbe2cc619e7c1be4fa7c3f385f156bbf
 @
