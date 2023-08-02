@@ -10,8 +10,6 @@ A
 media/.keep,8/2/82a714a3cbe2cc619e7c1be4fa7c3f385f156bbf
 =
 .env.template,c/b/cba580618a52ae1531e8a3a2da7595593afd602d
-G
-django_blog/settings.py,f/2/f2fe66ea0f41b4ce6664c0b58384b407fe3b7b3e
 D
 accounts/__init__.py,6/6/66f55cad95e855b835d1f61bb875e90339c35887
 @
@@ -32,8 +30,6 @@ A
 core/admin.py,7/5/7504b8b5bc74cdd367c7f4cb37fefcd852215a7d
 =
 core/tests.py,f/0/f0ee9b29a9b6fb763d5114e01dacf3beaa34ab94
-=
-core/views.py,4/7/4706701c005a11d84d8ae7731365c7c336e3f466
 >
 core/models.py,f/2/f2aa1877262ad8572d1a58fd2492878f7250f7cc
 @

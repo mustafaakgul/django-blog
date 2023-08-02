@@ -273,15 +273,6 @@ def about(request):
 
 
 @login_required(login_url="user:login")
-def dashboard(request):
-    articles = Article.objects.filter(author=request.user)
-    context = {
-        "articles": articles
-    }
-    return render(request, "dashboard.html", context)
-
-
-@login_required(login_url="user:login")
 def addArticle(request):
     form = ArticleForm(request.POST or None, request.FILES or None)
 
