@@ -1,7 +1,14 @@
-from django import forms
+from django.forms import ModelForm
 from .models import Contact
 
-class ContactForm(forms.ModelForm):
+
+class ContactForm(ModelForm):
+
     class Meta:
         model = Contact
-        fields = ["name", "email", "phone", "message"]
+        fields = [
+            "full_name",
+            "email",
+            "phone",
+            "message"
+        ]
