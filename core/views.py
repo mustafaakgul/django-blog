@@ -11,3 +11,7 @@ def dashboard(request):
     }
 
     return render(request, "dashboard.html", context)
+
+
+def about(request):
+    return render(request, "about.html")
