@@ -26,8 +26,6 @@ C
 .env.template,c/b/cba580618a52ae1531e8a3a2da7595593afd602d
 G
 django_blog/settings.py,f/2/f2fe66ea0f41b4ce6664c0b58384b407fe3b7b3e
-A
-comments/forms.py,8/a/8a118516577043264d6575fedb60fbdb291a6dbe
 D
 accounts/__init__.py,6/6/66f55cad95e855b835d1f61bb875e90339c35887
 @
