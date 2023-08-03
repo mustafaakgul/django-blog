@@ -78,16 +78,24 @@ def get_article(request, id):
 
 
 @login_required(login_url = "user:login")
-def update_article(request,id):
-    article = get_object_or_404(Article, id = id)
-    form = ArticleForm(request.POST or None, request.FILES or None, instance = article)
+def update_article(request, id):
+    if not request.user.is_authenticated():
+        return Http404()
+
+    article = get_object_or_404(Article, id=id) # get_object_or_404(Post, slug=slug)
+    form = ArticleForm(request.POST or None, request.FILES or None, instance=article)
+    context = {
+        'form': form
+    }
+
     if form.is_valid():
-        article = form.save(commit=False)  # save yapma ben yapicam cnku user atanmadgi icin hata aliriz
+        article = form.save(commit=False)  # Not saving yet because we get error if we don't assign user
         article.author = request.user
         article.save()
         messages.success(request, "Article updated successfully")
         return redirect("article:dashboard")
-    return render(request, "update.html", {"form" : form}) # post gibi bisey dglse get ise buna bakcak
+
+    return render(request, "article/update.html", context)
 
 
 @login_required(login_url = "user:login")
@@ -99,6 +107,7 @@ def delete_article(request, id):
     article.delete()
     messages.success(request, "Article deleted sucessfully")
     return redirect("article:dashboard")
+
 """
 def index(request):
     #requeste karslk response don
@@ -353,21 +362,4 @@ def post_create(request):
     return render(request, "post/form.html", context)
 
 
-def post_update(request, slug):
 
-    if not request.user.is_authenticated():
-        # Eğer kullanıcı giriş yapmamış ise hata sayfası gönder
-        return Http404()
-
-    post = get_object_or_404(Post, slug=slug)
-    form = PostForm(request.POST or None, request.FILES or None, instance=post)
-    if form.is_valid():
-        form.save()
-        messages.success(request, "Başarılı bir şekilde güncellediniz.")
-        return HttpResponseRedirect(post.get_absolute_url())
-
-    context = {
-        'form': form
-    }
-
-    return render(request, "post/form.html", context)
