@@ -95,10 +95,10 @@ def delete_article(request, id):
     if not request.user.is_authenticated(): # If not logged in
         return Http404()
 
-    article = get_object_or_404(Article, id = id) # get_object_or_404(Post, slug=slug)
+    article = get_object_or_404(Article, id=id) # get_object_or_404(Post, slug=slug)
     article.delete()
     messages.success(request, "Article deleted sucessfully")
-    return redirect("article:dashboard") #article uygulamsandaki altndaki url gir
+    return redirect("article:dashboard")
 """
 def index(request):
     #requeste karslk response don
@@ -248,17 +248,6 @@ def updateArticle(request, id):
         return redirect("article:dashboard")
 
     return render(request, "update.html", {"form": form})
-
-
-@login_required(login_url="user:login")
-def deleteArticle(request, id):
-    article = get_object_or_404(Article, id=id)
-
-    article.delete()
-
-    messages.success(request, "Makale Başarıyla Silindi")
-
-    return redirect("article:dashboard")
 
 
 def addComment(request, id):
