@@ -154,3 +154,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 RECAPTCHA_PUBLIC_KEY = '6Lf5fxcUAAAAADwchIhprA8UnkgXOTBKv8HWArzP'
 RECAPTCHA_PRIVATE_KEY = '6Lf5fxcUAAAAAODE1PXCcat0n0zWuCv2fDAcLcTn'
 NOCAPTCHA = True
+
+
+# Login
+#LOGIN_URL = reverse_lazy('user-login')
