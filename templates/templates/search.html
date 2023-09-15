@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Arama Sonuçları
+{% endblock %}
+
+
+{% block css %}
+	<link href="{% static "layout-1/css/styles.css" %}" rel="stylesheet">
+	<link href="{% static "layout-1/css/responsive.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+
+
+
+{% block section %}
+<div class="slider">
+
+<div class="display-table  center-text">
+			<h1 style="color:white" class="title display-table-cell"><b>{{ request.GET.query }} İÇİN ARAMA SONUÇLARI</b></h1>
+		</div>
+
+</div><!-- slider -->
+
+	<section class="blog-area section">
+		<div class="container">
+
+			<div class="row">
+
+
+
+                {% for yazi in yazilar %}
+
+                		<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<div class="single-post post-style-1">
+
+							<div class="blog-image"><img src="{{ yazi.image.url }}" alt="Blog Image"></div>
+
+							<a class="avatar" href="#"><img src="{% static 'images/icons8-team-355979.jpg' %}" alt="Profile Image"></a>
+
+							<div class="blog-info">
+
+								<h4 class="title"><a href="{% url "yazi:yazidetay" yazi.slug %}"><b>{{ yazi.başlık }}</b></a></h4>
+
+								<ul class="post-footer">
+									<li><a href="{% url "yazi:begen" yazi.id %}"><i class="ion-heart"></i>{{ yazi.begeniSayisi }}</a></li>
+									<li><a href="#"><i class="ion-chatbubble"></i>{{ yazi.yorumlar.count }}</a></li>
+									<li><a href="#"><i class="ion-eye"></i>{{ yazi.goruntulenmeSayisi }}</a></li>
+								</ul>
+
+							</div><!-- blog-info -->
+						</div><!-- single-post -->
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+			</div><!-- row -->
+
+			<a class="load-more-btn" href="#"><b>1</b></a> 	<a class="load-more-btn" href="#"><b>2</b></a>
+
+		</div><!-- container -->
+	</section><!-- section -->
+
+
+{% endblock %}

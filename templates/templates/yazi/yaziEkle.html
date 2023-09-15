@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Ana Sayfa
+{% endblock %}
+
+{% block css %}
+    <link href="{% static "single-post-1/css/styles.css" %}" rel="stylesheet">
+	<link href="{% static "single-post-1/css/responsive.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block section %}
+
+	<div class="slider">
+		<div class="display-table  center-text">
+			<h1 class="title display-table-cell"><b>YENİ YAZI EKLE</b></h1>
+		</div>
+	</div><!-- slider -->
+
+	<section class="post-area section">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-lg-8 col-md-12 no-right-padding">
+
+                    <h3>Yazı Ekle</h3><br>
+
+                    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+                        {{ form.media }}
+                    {{ form.as_p }}
+
+                        <br>
+                        <button style="    font-size: .8em;
+    border: 0;
+    outline: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #D2E2FC;
+    background: #D2E2FC;" class="submit-btn">Yayınla</button>
+                        
+                        </form>
+
+
+
+				</div><!-- col-lg-8 col-md-12 -->
+
+				<div class="col-lg-4 col-md-12 no-left-padding">
+
+					<div class="single-post info-area">
+
+						<div class="sidebar-area about-area">
+							<h4 class="title"><b>BLOG HAKKINDA</b></h4>
+							<p>Bu site Udemy'deki django kursu için hazırlanan blog projesidir. Hayırlı olsun :)</p>
+						</div>
+
+						<div class="sidebar-area subscribe-area">
+
+							<h4 class="title"><b>ABONE OL</b></h4>
+							<div class="input-area">
+								<form>
+									<input class="email-input" type="text" placeholder="E-Posta Adresini Yaz...">
+									<button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
+								</form>
+							</div>
+
+						</div><!-- subscribe-area -->
+
+
+					</div><!-- info-area -->
+
+				</div><!-- col-lg-4 col-md-12 -->
+
+			</div><!-- row -->
+
+		</div><!-- container -->
+	</section><!-- post-area -->
+
+
+
+
+
+
+
+{% endblock %}
+
+

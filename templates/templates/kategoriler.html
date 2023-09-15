@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Ana Sayfa
+{% endblock %}
+
+{% block css %}
+	<link href="{% static "front-page-category/css/styles.css" %}" rel="stylesheet">
+	<link href="{% static "front-page-category/css/responsive.css" %}" rel="stylesheet">
+    <link href="{% static "common-css/swiper.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+<script src="{% static "common-js/swiper.js" %}"></script>
+{% endblock %}
+
+
+
+
+{% block section %}
+
+	<div class="main-slider">
+		<div class="swiper-container position-static" data-slide-effect="slide" data-autoheight="false"
+			data-swiper-speed="500" data-swiper-autoplay="10000" data-swiper-margin="0" data-swiper-slides-per-view="4"
+			data-swiper-breakpoints="true" data-swiper-loop="true" >
+			<div class="swiper-wrapper">
+
+
+                {% for kategori in kategoriler %}
+
+                    		<div class="swiper-slide">
+					<a class="slider-category" href="{{ kategori.slug }}">
+						<div class="blog-image"><img src="{{ kategori.image.url }}" alt="Blog Image"></div>
+
+						<div class="category">
+							<div class="display-table center-text">
+								<div class="display-table-cell">
+									<h3><b>{{ kategori.başlık }}</b></h3>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div><!-- swiper-slide -->
+
+
+                {% endfor %}
+
+
+
+
+			</div><!-- swiper-wrapper -->
+
+		</div><!-- swiper-container -->
+
+	</div><!-- slider -->
+
+
+
+	<section class="blog-area section">
+		<div class="container">
+
+{% if kategori %}
+    <h1>{{ kategori.başlık }}</h1><br><br>
+{% endif %}
+
+			<div class="row">
+
+
+
+                {% for yazı in yazılar %}
+
+                	<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<div class="single-post post-style-1">
+
+                            {% if yazı.image %}
+
+							<div class="blog-image"><img src="{{ yazı.image.url }}" alt="Blog Image"></div>
+
+                            {% endif %}
+
+							<a class="avatar" href="#"><img src="{% static "images/icons8-team-355979.jpg" %}" alt="Profile Image"></a>
+
+							<div class="blog-info">
+
+								<h4 class="title"><a href="{% url "yazi:yazidetay" yazı.slug %}"><b>{{ yazı.başlık }}</b></a></h4>
+
+								<ul class="post-footer">
+									<li><a href="{% url "yazi:begen" yazı.id %}"><i class="ion-heart"></i>{{ yazı.begeniSayisi }}</a></li>
+									<li><a href="#"><i class="ion-chatbubble"></i>{{ yazı.yorumlar.count }}</a></li>
+									<li><a href="#"><i class="ion-eye"></i>{{ yazı.goruntulenmeSayisi }}</a></li>
+								</ul>
+
+							</div><!-- blog-info -->
+						</div><!-- single-post -->
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+                {% endfor %}
+
+
+
+			</div><!-- row -->
+        {% if yazılar.has_previous %}
+			<a class="load-more-btn" href="?sayfa={{ yazılar.previous_page_number }}"><b>önceki</b></a>
+            {% endif %}
+
+         {% if yazılar.has_next %}
+            <a class="load-more-btn" href="?sayfa={{ yazılar.next_page_number }}"><b>sonraki</b></a>
+        {% endif %}
+
+
+
+
+
+		</div><!-- container -->
+	</section><!-- section -->
+
+{% endblock %}

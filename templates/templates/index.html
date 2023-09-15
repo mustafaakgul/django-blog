@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block title %}
+Ana Sayfa
+{% endblock %}
+
+
+{% block css %}
+	<link href="{% static "layout-1/css/styles.css" %}" rel="stylesheet">
+	<link href="{% static "layout-1/css/responsive.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+
+
+
+{% block section %}
+<div class="slider">
+
+
+<div class="display-table  center-text">
+			<h1 style="color:white" class="title display-table-cell"><b>HOŞGELDİNİZ</b></h1>
+		</div>
+
+</div><!-- slider -->
+
+	<section class="blog-area section">
+		<div class="container">
+
+			<div class="row">
+
+
+
+                {% for yazi in yazilar %}
+
+                		<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<div class="single-post post-style-1">
+
+
+                            {% if yazi.image %}
+                            	<div class="blog-image"><img src="{{ yazi.image.url }}" alt="Blog Image"></div>
+
+                            {% endif %}
+
+							<a class="avatar" href="#"><img src="{% static 'images/icons8-team-355979.jpg' %}" alt="Profile Image"></a>
+
+							<div class="blog-info">
+
+								<h4 class="title"><a href="{% url "yazi:yazidetay" yazi.slug %}"><b>{{ yazi.başlık }}</b></a></h4>
+
+								<ul class="post-footer">
+									<li><a href="{% url "yazi:begen" yazi.id %}"><i class="ion-heart"></i>{{ yazi.begeniSayisi }}</a></li>
+									<li><a href="#"><i class="ion-chatbubble"></i>{{ yazi.yorumlar.count }}</a></li>
+									<li><a href="#"><i class="ion-eye"></i>{{ yazi.goruntulenmeSayisi }}</a></li>
+								</ul>
+
+							</div><!-- blog-info -->
+						</div><!-- single-post -->
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+
+                {% endfor %}
+
+
+
+
+			</div><!-- row -->
+
+        {% if yazilar.has_previous %}
+			<a class="load-more-btn" href="?sayfa={{ yazilar.previous_page_number }}"><b>önceki</b></a>
+            {% endif %}
+
+         {% if yazilar.has_next %}
+            <a class="load-more-btn" href="?sayfa={{ yazilar.next_page_number }}"><b>sonraki</b></a>
+        {% endif %}
+
+
+
+
+
+
+
+		</div><!-- container -->
+	</section><!-- section -->
+
+
+{% endblock %}

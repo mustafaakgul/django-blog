@@ -1,0 +1,28 @@
+{% load static %}
+
+
+<body >
+
+	<header>
+		<div class="container-fluid position-relative no-side-padding">
+
+			<a href="#" class="logo"><img src="{% static 'images/logo.png' %}" alt="Logo Image"></a>
+
+			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
+
+			<ul class="main-menu visible-on-click" id="main-menu">
+				<li><a href="/">Ana Sayfa</a></li>
+				<li><a href="{% url "kategori:index" %}">Kategoriler</a></li>
+				<li><a href="{% url "yazi:yaziEkle" %}">Yazı Ekle</a></li>
+			</ul><!-- main-menu -->
+
+			<div class="src-area">
+				<form action="{% url "search" %}" method="GET">
+					<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
+					<input name="query" class="src-input" type="text" placeholder="Arama yapmak için bir şeyler yaz...">
+				</form>
+			</div>
+
+		</div><!-- conatiner -->
+	</header>
+
