@@ -6,7 +6,7 @@
  * Don't use import * (all) -> import specific class
 
 #### How to Run
-* `virtualenv venv`
+* `python3.12 -m venv venv`
 * Linux & Mac: `source venv/bin/activate`
 * Windows: `venv\Scripts\activate`
 * `pip install -r requirements.txt`
